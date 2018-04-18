@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/com/cnipr/schedule/ClearAsDB.java=GBK
+encoding//src/com/cnipr/schedule/GetSearchFormat.java=UTF-8
+encoding//src/com/cnipr/schedule/GetUserEmailTask.java=GBK
+encoding//src/com/cnipr/schedule/LegalwarnTask.java=GBK
+encoding//src/com/cnipr/schedule/ManualLegalTask.java=GBK
+encoding//src/com/cnipr/schedule/ManualWarn.java=GBK
+encoding//src/com/cnipr/schedule/ManualWarnTask.java=GBK
+encoding//src/com/cnipr/schedule/StringUtils.java=UTF-8
+encoding//src/com/cnipr/schedule/Timewarn.java=GBK
+encoding//src/com/cnipr/schedule/TimewarnTask.java=GBK
+encoding/<project>=GBK

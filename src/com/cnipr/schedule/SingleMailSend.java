@@ -10,8 +10,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 
 public class SingleMailSend {
 	public static void main(String args[]) {
-		String to = "weiding@cnipr.com";
-//		to = "1141950789@qq.com";
+		String to = "abc@123.com";
 		String title = "Cnipr法律状态预警utf8";
 		String content = "utf8编码   http://www.cnipr.jp?targetURL=warn!legal.action           http://localhost:8080/cnipr-vol1/?targetURL=warn!legal.action";
 		boolean result = mailFromCnipr263(to, title, content);

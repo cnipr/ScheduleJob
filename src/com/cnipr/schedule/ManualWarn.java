@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ManualWarn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	//ÓÃÀ´¼ÇÂ¼ÄÇĞ©ÓÃ»§ÒÑ¾­·¢ËÍ¹ıÓÊ¼ş
+	//ç”¨æ¥è®°å½•é‚£äº›ç”¨æˆ·å·²ç»å‘é€è¿‡é‚®ä»¶
 	public static Set<String> emailSet = new HashSet<String>();
 
 	/**
@@ -38,7 +38,7 @@ public class ManualWarn extends HttpServlet {
 	}
 
 	/**
-	 * @see Servlet#init(ServletConfig) ×Ô¶¯Ô¤¾¯
+	 * @see Servlet#init(ServletConfig) è‡ªåŠ¨é¢„è­¦
 	 */
 	public void init(ServletConfig config) throws ServletException {
 	}
@@ -55,14 +55,14 @@ public class ManualWarn extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response) Í¨¹ıÊÖ¶¯´¥·¢µÄ·½Ê½½øĞĞÔ¤¾¯
+	 *      response) é€šè¿‡æ‰‹åŠ¨è§¦å‘çš„æ–¹å¼è¿›è¡Œé¢„è­¦
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		ServletOutputStream out = response.getOutputStream();
 		String pubDateStr = request.getParameter("pubDate");
 		if (pubDateStr == null) {
-			out.write("²ÎÊıpubDate²»¿ÉÒÔÎª¿Õ,ÕıÈ·µÄ¸ñÊ½Èç£º20160504.".getBytes());
+			out.write("å‚æ•°pubDateä¸å¯ä»¥ä¸ºç©º,æ­£ç¡®çš„æ ¼å¼å¦‚ï¼š20160504.".getBytes());
 			return;
 		}
 		try {
@@ -79,16 +79,16 @@ public class ManualWarn extends HttpServlet {
 				Entry<String, String> entry = iterator.next();
 				System.out.println(entry.getKey() + entry.getValue());
 				
-				 /*if (!entry.getKey().equals("weiding@cnipr.com")) { 
+				 /*if (!entry.getKey().equals("abc@123.com")) { 
 					 continue;
 				 }*/
 				
-				if (emailSet.contains(entry.getKey())) {//ÒÑ¾­·¢ËÍ¹ıµÄ²»ÔÙ·¢ËÍ
+				if (emailSet.contains(entry.getKey())) {//å·²ç»å‘é€è¿‡çš„ä¸å†å‘é€
 					continue;
 				}
 				 
 				SingleMailSend.mailFromCnipr263(entry.getKey(),
-						"CNIPRÈÕ±¾ÕZ°æ¶¨ÆÚ¥¢¥é©`¥È½Y¹û¡¾"+ pubDateStr +"¡¿" ,
+						"CNIPRæ—¥æœ¬èªç‰ˆå®šæœŸã‚¢ãƒ©ãƒ¼ãƒˆçµæœã€"+ pubDateStr +"ã€‘" ,
 						entry.getValue());				
 				emailSet.add(entry.getKey());
 			}
@@ -96,7 +96,7 @@ public class ManualWarn extends HttpServlet {
 			out.write("success".getBytes());
 			
 		} catch (ParseException e) {
-			out.write("²ÎÊıpubDateÈÕÆÚ¸ñÊ½²»ÕıÈ·,ÕıÈ·µÄ¸ñÊ½Èç£º20160504.".getBytes());
+			out.write("å‚æ•°pubDateæ—¥æœŸæ ¼å¼ä¸æ­£ç¡®,æ­£ç¡®çš„æ ¼å¼å¦‚ï¼š20160504.".getBytes());
 		} finally {
 			out.close();
 		}
